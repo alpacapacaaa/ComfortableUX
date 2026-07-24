@@ -7,7 +7,7 @@ const ARTICLES = [
   { tag: "정치", title: "국회, 내년도 예산안 심사 본격화", time: "8시간 전" },
 ];
 
-export function NewsSite() {
+export function NewsSite({ onSignup }: { onSignup: () => void }) {
   return (
     <div className="h-full w-full overflow-y-auto bg-white">
       <div className="flex items-center justify-between border-b border-neutral-200 px-10 py-5">
@@ -19,7 +19,15 @@ export function NewsSite() {
             <span key={n}>{n}</span>
           ))}
         </nav>
-        <span className="text-sm text-neutral-400">🔍 검색</span>
+        <div className="flex items-center gap-5">
+          <span className="text-sm text-neutral-400">🔍 검색</span>
+          <button
+            onClick={onSignup}
+            className="rounded-lg bg-neutral-900 px-4 py-2 text-[13px] font-semibold text-white"
+          >
+            회원가입
+          </button>
+        </div>
       </div>
 
       <div className="px-10 py-8">

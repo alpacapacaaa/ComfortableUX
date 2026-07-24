@@ -5,9 +5,9 @@ import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { BrowserFrame } from "@/components/ui/BrowserFrame";
 import { IntroBanner } from "@/components/ui/IntroBanner";
 import { NewsSite } from "./_components/NewsSite";
-import { CookieConsent } from "./_components/CookieConsent";
+import { SignupForm } from "./_components/SignupForm";
 
-type Screen = "intro" | "site";
+type Screen = "intro" | "home" | "signup";
 
 export default function Episode1Page() {
   const [screen, setScreen] = useState<Screen>("intro");
@@ -26,15 +26,15 @@ export default function Episode1Page() {
             episodeLabel="EPISODE 01"
             codename="GHOST"
             appName="Comfortable Daily"
-            marketingCopy="고객님의 프라이버시를, 저희가 가장 먼저 생각합니다."
-            hook="쿠키 거부 버튼, 어디 있는지 아세요?"
-            onStart={() => setScreen("site")}
+            marketingCopy="고객님의 소중한 개인정보, 저희가 가장 먼저 생각합니다."
+            hook="전체 동의 눌렀을 뿐인데, 뭐에 동의한 거지?"
+            onStart={() => setScreen("home")}
           />
         </PhoneFrame>
       ) : (
-        <BrowserFrame url="comfortabledaily.com">
-          <NewsSite />
-          <CookieConsent key={siteKey} />
+        <BrowserFrame url="comfortabledaily.com" key={siteKey}>
+          {screen === "home" && <NewsSite onSignup={() => setScreen("signup")} />}
+          {screen === "signup" && <SignupForm />}
         </BrowserFrame>
       )}
 
