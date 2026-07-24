@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { SubtitleOverlay } from "@/components/ui/SubtitleOverlay";
 
 const FEATURES = ["광고 없이 기사 보기", "프리미엄 기사 무제한 열람", "매거진 전용 콘텐츠 제공"];
 
@@ -68,10 +67,6 @@ export function PaywallPrompt({ onDismiss }: { onDismiss: () => void }) {
           </button>
         </div>
       </div>
-
-      {attempted && (
-        <SubtitleOverlay note="자막 영역 · 편집 시 텍스트 삽입 (예: UX 다크패턴 · 무료인 줄 알았는데 결제 유도, 근데 결제도 안 됨 / Bait and Switch)" />
-      )}
     </div>
   );
 }
