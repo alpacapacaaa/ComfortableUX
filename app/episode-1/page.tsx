@@ -27,7 +27,7 @@ export default function Episode1Page() {
             codename="GHOST"
             appName="Comfortable Daily"
             marketingCopy="고객님의 소중한 개인정보, 저희가 가장 먼저 생각합니다."
-            hook="전체 동의 눌렀을 뿐인데, 뭐에 동의한 거지?"
+            hook="선택 항목, 취소하려고 눌러보세요. 잡을 수 있다면요."
             onStart={() => setScreen("home")}
           />
         </PhoneFrame>

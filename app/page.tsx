@@ -15,7 +15,7 @@ const episodes: Episode[] = [
     number: "EP. 01",
     codename: "GHOST",
     app: "Comfortable Daily",
-    blurb: "'전체 동의' 한 번이면 마케팅 수신까지 몰래 끼워진다.",
+    blurb: "이상한 개인정보 수집 동의가 이미 다 체크되어 있다. 취소 버튼은 도망간다.",
     ready: true,
   },
   {

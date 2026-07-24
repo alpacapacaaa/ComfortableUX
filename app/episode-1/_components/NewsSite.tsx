@@ -30,32 +30,52 @@ export function NewsSite({ onSignup }: { onSignup: () => void }) {
         </div>
       </div>
 
-      <div className="px-10 py-8">
-        <div className="mb-10 grid grid-cols-2 gap-8">
-          <div className="aspect-video rounded-lg bg-gradient-to-br from-neutral-200 to-neutral-300" />
-          <div className="flex flex-col justify-center gap-3">
-            <span className="text-xs font-bold text-blue-600">단독</span>
-            <h1 className="text-3xl font-bold leading-snug text-neutral-900">
-              &ldquo;기록적인 폭염&rdquo; 이번 주 절정...전국 대부분 폭염특보
-            </h1>
-            <p className="text-[15px] leading-relaxed text-neutral-500">
-              기상청은 이번 주 중반까지 낮 최고기온이 35도를 웃도는 무더위가 이어질 것으로
-              내다봤다. 온열질환 발생이 급증하고 있어 각별한 주의가 필요하다는 분석이다.
-            </p>
+      <div className="relative px-10 py-8">
+        <div className="pointer-events-none select-none blur-[5px]">
+          <div className="mb-10 grid grid-cols-2 gap-8">
+            <div className="aspect-video rounded-lg bg-gradient-to-br from-neutral-200 to-neutral-300" />
+            <div className="flex flex-col justify-center gap-3">
+              <span className="text-xs font-bold text-blue-600">단독</span>
+              <h1 className="text-3xl font-bold leading-snug text-neutral-900">
+                &ldquo;기록적인 폭염&rdquo; 이번 주 절정...전국 대부분 폭염특보
+              </h1>
+              <p className="text-[15px] leading-relaxed text-neutral-500">
+                기상청은 이번 주 중반까지 낮 최고기온이 35도를 웃도는 무더위가 이어질 것으로
+                내다봤다. 온열질환 발생이 급증하고 있어 각별한 주의가 필요하다는 분석이다.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 gap-6">
+            {ARTICLES.map((a) => (
+              <div key={a.title} className="flex flex-col gap-2">
+                <div className="aspect-video rounded-lg bg-neutral-100" />
+                <span className="text-xs font-semibold text-blue-600">{a.tag}</span>
+                <p className="text-[15px] font-semibold leading-snug text-neutral-900">
+                  {a.title}
+                </p>
+                <span className="text-xs text-neutral-400">{a.time}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-6">
-          {ARTICLES.map((a) => (
-            <div key={a.title} className="flex flex-col gap-2">
-              <div className="aspect-video rounded-lg bg-neutral-100" />
-              <span className="text-xs font-semibold text-blue-600">{a.tag}</span>
-              <p className="text-[15px] font-semibold leading-snug text-neutral-900">
-                {a.title}
-              </p>
-              <span className="text-xs text-neutral-400">{a.time}</span>
-            </div>
-          ))}
+        <div className="absolute inset-0 flex items-start justify-center pt-16">
+          <div className="flex flex-col items-center gap-4 rounded-2xl border border-neutral-200 bg-white/95 px-10 py-8 text-center shadow-xl">
+            <span className="text-3xl">🔒</span>
+            <p className="text-[15px] font-semibold text-neutral-900">
+              회원가입하고 전체 기사를 확인하세요
+            </p>
+            <p className="max-w-[280px] text-[13px] leading-relaxed text-neutral-500">
+              Comfortable Daily 회원이 되시면 모든 기사를 제한 없이 볼 수 있어요.
+            </p>
+            <button
+              onClick={onSignup}
+              className="rounded-lg bg-blue-600 px-8 py-3 text-[14px] font-bold text-white"
+            >
+              회원가입하고 계속 읽기
+            </button>
+          </div>
         </div>
       </div>
     </div>
