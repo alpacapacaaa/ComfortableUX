@@ -24,10 +24,10 @@ const slideVariants = {
 function Row({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
     <div className="flex items-start justify-between gap-3 py-1.5">
-      <span className="shrink-0 text-[12px] text-[#8A94A6]">{label}</span>
+      <span className="shrink-0 text-[12px] text-[#8B95A1]">{label}</span>
       <div className="text-right">
-        <p className="text-[13px] font-medium text-[#101828]">{value}</p>
-        {sub && <p className="mt-0.5 text-[11px] text-[#8A94A6]">{sub}</p>}
+        <p className="text-[13px] font-medium text-[#191F28]">{value}</p>
+        {sub && <p className="mt-0.5 text-[11px] text-[#8B95A1]">{sub}</p>}
       </div>
     </div>
   );
@@ -53,25 +53,25 @@ export function ReceiptViewer({
   }
 
   return (
-    <div className="flex h-full w-full flex-col bg-[#F4F6FB]">
-      <div className="flex items-center justify-between border-b border-black/5 bg-white px-5 pb-3 pt-6">
+    <div className="flex h-full w-full flex-col bg-[#F2F4F6]">
+      <div className="flex items-center justify-between bg-white px-5 pb-3 pt-6">
         <button
           onClick={onBack}
           aria-label="뒤로가기"
-          className="flex h-8 w-8 items-center justify-center rounded-full text-lg text-[#0B1B3B]"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-lg text-[#191F28]"
         >
           ‹
         </button>
-        <span className="text-[15px] font-semibold text-[#101828]">이체확인증</span>
-        <div className="flex items-center gap-1.5 rounded-full bg-[#0B1B3B]/5 px-2.5 py-1">
-          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0B1B3B] text-[10px] font-bold text-white">
+        <span className="text-[15px] font-bold text-[#191F28]">이체확인증</span>
+        <div className="flex items-center gap-1.5 rounded-full bg-[#F2F4F6] px-2.5 py-1">
+          <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#3182F6] text-[10px] font-bold text-white">
             {ME.name.slice(-1)}
           </span>
-          <span className="text-[11px] font-medium text-[#0B1B3B]">{ME.name}</span>
+          <span className="text-[11px] font-medium text-[#191F28]">{ME.name}</span>
         </div>
       </div>
 
-      <div className="mx-5 mt-3 flex items-center gap-2 rounded-lg bg-[#E9ECF4] px-3 py-2 text-[11px] text-[#5B6B8C]">
+      <div className="mx-5 mt-3 flex items-center gap-2 rounded-xl bg-white px-3 py-2.5 text-[11px] text-[#8B95A1]">
         <span>🔒</span>
         <span className="truncate font-mono">comfortablebank.co.kr/receipts/{id}</span>
       </div>
@@ -90,20 +90,20 @@ export function ReceiptViewer({
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.6}
             onDragEnd={handleDragEnd}
-            className={`absolute inset-0 flex flex-col rounded-2xl bg-white p-5 shadow-[0_10px_30px_-12px_rgba(11,27,59,0.25)] ${
-              ended ? "ring-2 ring-rose-400" : ""
+            className={`absolute inset-0 flex flex-col rounded-3xl bg-white p-5 shadow-[0_4px_24px_-8px_rgba(25,31,40,0.12)] ${
+              ended ? "ring-2 ring-[#F04452]" : ""
             }`}
           >
             <div className="mb-4 flex items-center justify-between">
-              <span className="text-[13px] font-semibold text-[#0B1B3B]">
+              <span className="text-[13px] font-bold text-[#191F28]">
                 {isMine ? ME.bank : receipt.senderBank}
               </span>
-              <span className="text-[11px] text-[#8A94A6]">{receipt.date}</span>
+              <span className="text-[11px] text-[#8B95A1]">{receipt.date}</span>
             </div>
 
-            <div className="mb-5 flex flex-col items-center gap-1 border-b border-dashed border-[#E2E6F0] pb-5">
-              <span className="text-[12px] text-[#8A94A6]">이체금액</span>
-              <span className="text-[26px] font-bold text-[#0B1B3B]">
+            <div className="mb-5 flex flex-col items-center gap-1 border-b border-dashed border-[#F2F4F6] pb-5">
+              <span className="text-[12px] text-[#8B95A1]">이체금액</span>
+              <span className="text-[28px] font-bold tracking-tight text-[#191F28]">
                 ₩{receipt.amount.toLocaleString()}
               </span>
             </div>
@@ -117,7 +117,7 @@ export function ReceiptViewer({
               <div
                 className={
                   ended
-                    ? "animate-pulse rounded-xl border-2 border-dashed border-rose-400 bg-rose-50/70 p-2"
+                    ? "animate-pulse rounded-xl border-2 border-dashed border-[#F04452] bg-[#FFF1F1] p-2"
                     : ""
                 }
               >
@@ -136,19 +136,19 @@ export function ReceiptViewer({
 
       {!ended && (
         <div className="px-5 pb-6">
-          <div className="mb-3 rounded-xl bg-[#EAF1FF] px-4 py-3 text-center text-[12px] font-medium text-[#1D4ED8]">
+          <div className="mb-3 rounded-2xl bg-[#EEF3FF] px-4 py-3 text-center text-[12px] font-medium text-[#3182F6]">
             이웃 이체 내역도 편하게 확인해보세요
           </div>
           <div className="flex items-center gap-3">
             <button
               onClick={onPrev}
-              className="flex-1 rounded-full border border-[#0B1B3B]/10 py-3 text-sm font-semibold text-[#0B1B3B] active:scale-[0.97]"
+              className="flex-1 rounded-2xl bg-[#F2F4F6] py-3 text-sm font-semibold text-[#191F28] active:scale-[0.97]"
             >
               ◀ 이전 확인증
             </button>
             <button
               onClick={onNext}
-              className="flex-1 rounded-full bg-[#0B1B3B] py-3 text-sm font-semibold text-white active:scale-[0.97]"
+              className="flex-1 rounded-2xl bg-[#3182F6] py-3 text-sm font-semibold text-white active:scale-[0.97]"
             >
               다음 확인증 ▶
             </button>
@@ -156,7 +156,7 @@ export function ReceiptViewer({
           {strangerViews >= 2 && (
             <button
               onClick={onStop}
-              className="mt-3 w-full text-center text-[12px] font-medium text-rose-500 underline underline-offset-2"
+              className="mt-3 w-full text-center text-[12px] font-medium text-[#F04452] underline underline-offset-2"
             >
               그만 보기
             </button>
