@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scaffold boilerplate (not project content)
+AGENTS.md
+CLAUDE.md
