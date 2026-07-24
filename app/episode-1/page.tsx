@@ -34,7 +34,12 @@ export default function Episode1Page() {
         </PhoneFrame>
       ) : (
         <BrowserFrame url="comfortabledaily.com" key={siteKey}>
-          {screen === "home" && <NewsSite onSignup={() => setScreen("signup")} />}
+          {(screen === "home" || screen === "paywall") && (
+            <NewsSite
+              onSignup={() => setScreen("signup")}
+              showLockPrompt={screen === "home"}
+            />
+          )}
           {screen === "signup" && <SignupForm onSubmit={() => setScreen("paywall")} />}
           {screen === "paywall" && <PaywallPrompt onDismiss={() => setScreen("home")} />}
         </BrowserFrame>

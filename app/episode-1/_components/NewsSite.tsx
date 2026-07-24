@@ -7,7 +7,13 @@ const ARTICLES = [
   { tag: "정치", title: "국회, 내년도 예산안 심사 본격화", time: "8시간 전" },
 ];
 
-export function NewsSite({ onSignup }: { onSignup: () => void }) {
+export function NewsSite({
+  onSignup,
+  showLockPrompt = true,
+}: {
+  onSignup: () => void;
+  showLockPrompt?: boolean;
+}) {
   return (
     <div className="h-full w-full overflow-y-auto bg-white">
       <div className="flex items-center justify-between border-b border-neutral-200 px-10 py-5">
@@ -60,23 +66,25 @@ export function NewsSite({ onSignup }: { onSignup: () => void }) {
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-start justify-center pt-16">
-          <div className="flex flex-col items-center gap-4 rounded-2xl border border-neutral-200 bg-white/95 px-10 py-8 text-center shadow-xl">
-            <span className="text-3xl">🔒</span>
-            <p className="text-[15px] font-semibold text-neutral-900">
-              회원가입하고 전체 기사를 확인하세요
-            </p>
-            <p className="max-w-[280px] text-[13px] leading-relaxed text-neutral-500">
-              Comfortable Daily 회원이 되시면 모든 기사를 제한 없이 볼 수 있어요.
-            </p>
-            <button
-              onClick={onSignup}
-              className="rounded-lg bg-blue-600 px-8 py-3 text-[14px] font-bold text-white"
-            >
-              회원가입하고 계속 읽기
-            </button>
+        {showLockPrompt && (
+          <div className="absolute inset-0 flex items-start justify-center pt-16">
+            <div className="flex flex-col items-center gap-4 rounded-2xl border border-neutral-200 bg-white/95 px-10 py-8 text-center shadow-xl">
+              <span className="text-3xl">🔒</span>
+              <p className="text-[15px] font-semibold text-neutral-900">
+                회원가입하고 전체 기사를 확인하세요
+              </p>
+              <p className="max-w-[280px] text-[13px] leading-relaxed text-neutral-500">
+                Comfortable Daily 회원이 되시면 모든 기사를 제한 없이 볼 수 있어요.
+              </p>
+              <button
+                onClick={onSignup}
+                className="rounded-lg bg-blue-600 px-8 py-3 text-[14px] font-bold text-white"
+              >
+                회원가입하고 계속 읽기
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
