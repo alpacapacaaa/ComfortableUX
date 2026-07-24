@@ -68,7 +68,7 @@ export function SignupForm({ onSubmit }: { onSubmit: () => void }) {
   const [tosChecked, setTosChecked] = useState(false);
 
   return (
-    <div className="flex h-full w-full flex-col items-center overflow-y-auto bg-white px-10 py-14">
+    <div className="flex min-h-screen w-full flex-col items-center bg-white px-10 py-14">
       <div className="w-full max-w-[440px]">
         <h1 className="mb-1 text-2xl font-bold text-neutral-900">Comfortable Daily 회원가입</h1>
         <p className="mb-8 text-sm text-neutral-500">약관 동의만 하면 가입 끝!</p>

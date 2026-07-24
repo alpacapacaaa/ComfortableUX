@@ -8,7 +8,7 @@ export function PaywallPrompt({ onDismiss }: { onDismiss: () => void }) {
   const [attempted, setAttempted] = useState(false);
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center bg-neutral-900/55 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-900/55 backdrop-blur-sm">
       <div className="relative w-full max-w-[400px] rounded-2xl bg-white shadow-2xl">
         <button
           onClick={onDismiss}

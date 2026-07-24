@@ -15,7 +15,7 @@ export function NewsSite({
   showLockPrompt?: boolean;
 }) {
   return (
-    <div className="h-full w-full overflow-y-auto bg-white">
+    <div className="min-h-screen w-full bg-white">
       <div className="flex items-center justify-between border-b border-neutral-200 px-10 py-5">
         <span className="text-2xl font-black tracking-tight text-neutral-900">
           Comfortable Daily
