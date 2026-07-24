@@ -51,7 +51,7 @@ export default function Episode1Page() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-neutral-950 py-10">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-neutral-950 py-10 font-[family-name:var(--font-nunito)]">
       <PhoneFrame>
         <AnimatePresence mode="wait" initial={false}>
           {screen === "intro" && (

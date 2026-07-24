@@ -22,7 +22,7 @@ export function IntroBanner({
   onStart,
 }: IntroBannerProps) {
   return (
-    <div className="flex h-full w-full flex-col justify-between bg-white px-8 py-14">
+    <div className="flex h-full w-full flex-col justify-between bg-[#F2F4F6] px-8 py-14">
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
