@@ -6,8 +6,9 @@ import { BrowserFrame } from "@/components/ui/BrowserFrame";
 import { IntroBanner } from "@/components/ui/IntroBanner";
 import { NewsSite } from "./_components/NewsSite";
 import { SignupForm } from "./_components/SignupForm";
+import { PaywallPrompt } from "./_components/PaywallPrompt";
 
-type Screen = "intro" | "home" | "signup";
+type Screen = "intro" | "home" | "signup" | "paywall";
 
 export default function Episode1Page() {
   const [screen, setScreen] = useState<Screen>("intro");
@@ -34,7 +35,8 @@ export default function Episode1Page() {
       ) : (
         <BrowserFrame url="comfortabledaily.com" key={siteKey}>
           {screen === "home" && <NewsSite onSignup={() => setScreen("signup")} />}
-          {screen === "signup" && <SignupForm />}
+          {screen === "signup" && <SignupForm onSubmit={() => setScreen("paywall")} />}
+          {screen === "paywall" && <PaywallPrompt onDismiss={() => setScreen("home")} />}
         </BrowserFrame>
       )}
 

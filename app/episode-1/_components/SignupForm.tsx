@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { SubtitleOverlay } from "@/components/ui/SubtitleOverlay";
 
 const CREEPY_ITEMS = [
   "마케팅 정보 수신 동의 (이메일, SMS, 알림)",
@@ -65,25 +64,18 @@ function DodgingCheckbox() {
   );
 }
 
-export function SignupForm() {
+export function SignupForm({ onSubmit }: { onSubmit: () => void }) {
   const [tosChecked, setTosChecked] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div className="flex h-full w-full flex-col items-center overflow-y-auto bg-white px-10 py-14">
       <div className="w-full max-w-[440px]">
         <h1 className="mb-1 text-2xl font-bold text-neutral-900">Comfortable Daily 회원가입</h1>
-        <p className="mb-8 text-sm text-neutral-500">이메일 하나면 가입 끝!</p>
-
-        <input
-          placeholder="이메일"
-          disabled
-          className="mb-5 w-full rounded-lg border border-neutral-200 px-4 py-3 text-sm text-neutral-400"
-        />
+        <p className="mb-8 text-sm text-neutral-500">약관 동의만 하면 가입 끝!</p>
 
         <div className="rounded-xl border border-neutral-200 p-4">
           <button
-            onClick={() => !submitted && setTosChecked((v) => !v)}
+            onClick={() => setTosChecked((v) => !v)}
             className="mb-1 flex w-full items-center gap-3 rounded-lg px-2 py-2 text-left"
           >
             <RequiredCheckbox checked={tosChecked} />
@@ -101,12 +93,7 @@ export function SignupForm() {
 
           <div className="flex flex-col">
             {CREEPY_ITEMS.map((label) => (
-              <div
-                key={label}
-                className={`flex items-center justify-between gap-4 rounded-lg px-2 py-1 ${
-                  submitted ? "ring-2 ring-rose-400 bg-rose-50" : ""
-                }`}
-              >
+              <div key={label} className="flex items-center justify-between gap-4 rounded-lg px-2 py-1">
                 <span className="text-[13px] text-neutral-600">
                   <span className="text-neutral-400">[선택] </span>
                   {label}
@@ -118,17 +105,13 @@ export function SignupForm() {
         </div>
 
         <button
-          onClick={() => setSubmitted(true)}
-          disabled={!tosChecked || submitted}
+          onClick={onSubmit}
+          disabled={!tosChecked}
           className="mt-6 w-full rounded-lg bg-blue-600 py-3.5 text-[15px] font-bold text-white disabled:opacity-40"
         >
           가입하기
         </button>
       </div>
-
-      {submitted && (
-        <SubtitleOverlay note="자막 영역 · 편집 시 텍스트 삽입 (예: UX 다크패턴 · 기본값 선점 + 취소 회피 / Preselection & Interface Interference)" />
-      )}
     </div>
   );
 }
