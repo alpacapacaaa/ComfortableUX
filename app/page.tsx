@@ -1,26 +1,20 @@
 import Link from "next/link";
 
-const episodes = [
+interface Episode {
+  slug?: string;
+  number: string;
+  codename: string;
+  app: string;
+  blurb: string;
+  ready: boolean;
+}
+
+const episodes: Episode[] = [
   {
-    slug: "episode-1",
     number: "EP. 01",
-    codename: "NOSY",
-    app: "Comfortable Bank",
-    blurb: "이체확인증 번호 하나만 바꾸면, 남의 계좌가 보인다.",
-    ready: true,
-  },
-  {
-    number: "EP. 02",
-    codename: "GATE",
-    app: "Comfortable Work",
-    blurb: "URL 끝자리만 바꿨을 뿐인데, 옆 회사 데이터가 열린다.",
-    ready: false,
-  },
-  {
-    number: "EP. 03",
-    codename: "FINE PRINT",
-    app: "Comfortable Shop",
-    blurb: "결제 마지막 순간에야 등장하는 숨은 수수료.",
+    codename: "미정",
+    app: "?",
+    blurb: "아이디어 선정 중.",
     ready: false,
   },
 ];
