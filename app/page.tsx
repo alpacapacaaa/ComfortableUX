@@ -11,10 +11,25 @@ interface Episode {
 
 const episodes: Episode[] = [
   {
+    slug: "episode-1",
     number: "EP. 01",
-    codename: "미정",
-    app: "?",
-    blurb: "아이디어 선정 중.",
+    codename: "GHOST",
+    app: "Comfortable Daily",
+    blurb: "'전체 동의'는 크고 밝게, '거부'는 어디 있는지도 모르게.",
+    ready: true,
+  },
+  {
+    number: "EP. 02",
+    codename: "ROACH",
+    app: "Comfortable Fit",
+    blurb: "가입은 한 번, 해지는 여섯 단계.",
+    ready: false,
+  },
+  {
+    number: "EP. 03",
+    codename: "FINE PRINT",
+    app: "Comfortable Shop",
+    blurb: "결제 마지막 순간에야 등장하는 숨은 수수료.",
     ready: false,
   },
 ];
